@@ -17,7 +17,7 @@
 ## POST /thoughts - add single thought
 
 ```JavaScript
-Body: { message: String }
+Body: { message: String } 3 < length < 66
 
 {
     "data": {
