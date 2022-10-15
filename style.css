@@ -1,0 +1,214 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Kadwa", serif;
+  font-size: 20px;
+  font-weight: 400;
+  background-color: #fff;
+  line-height: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.container {
+  /* width: 100%; */
+  margin: 0 15px;
+  box-shadow: 10px 10px 0px #000000;
+  border: 2px solid #000;
+  background-color: #fff;
+}
+
+.theme_switch {
+  width: 84px;
+  height: 40px;
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  background-color: #24272c;
+  border-radius: 50px;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.theme_switch:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #e9eaf0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: url(./assets/heart_dark-theme.png);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.theme_switch:checked {
+  background-color: #eaeaea;
+}
+
+.theme_switch:checked:after {
+  left: 5px;
+  background-color: #333333;
+  background-image: url(./assets/heart_light-theme.png);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.new-thought__container {
+  margin-top: 77px;
+  background-color: #eaeaea;
+  padding: 17px 18px 32px 18px;
+  margin-bottom: 67px;
+}
+
+.new-thought__container_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-thought__container_input {
+  height: 100px;
+  border: 2px solid #999999;
+  padding: 12px;
+  font-family: "Kadwa", serif;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.new-thought__container_button {
+  font-family: "Kadwa", serif;
+  font-size: 20px;
+  background-color: #ffadad;
+  border: 2px solid #ff6161;
+  border-radius: 35px;
+  padding: 22px 0;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.single-thought__container {
+  padding: 20px;
+  line-height: 32px;
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+
+.single-thought__container-1st-part,
+.single-thought__container-2nd-part {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 19px;
+}
+
+.single-thought__container-2nd-part {
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+}
+
+.single-thought__container-text {
+  width: 90%;
+}
+
+.single-thought__container-delete {
+  background-image: url(./assets/delete_button.png);
+  background-size: 20px;
+  width: 20px;
+  height: 20px;
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.single-thought__container-like {
+  background-image: url(./assets/like_button.png);
+  width: 50px;
+  height: 50px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #eaeaea;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.single-thought__container-like:visited,
+.single-thought__container-like:hover {
+  background-color: #ffadad;
+}
+
+.single-thought__container-like-counter {
+  color: #666666;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+/* Tablet */
+@media all and (min-width: 768px) {
+  h2 {
+    font-size: 24px;
+    line-height: 48px;
+  }
+  .theme_switch {
+    right: 36px;
+  }
+  .container {
+    margin: 0 36px;
+  }
+  .new-thought__container {
+    margin-top: 77px;
+    margin-bottom: 100px;
+  }
+  .new-thought__container_button {
+    width: 304px;
+  }
+  .single-thought__container {
+    margin-bottom: 50px;
+  }
+  .single-thought__container-delete {
+    width: 15px;
+    height: 15px;
+    background-size: 15px;
+  }
+}
+
+/* Desktop */
+@media all and (min-width: 1200px) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    width: 696px;
+    margin: 100px 0 77px 0;
+  }
+  .theme_switch_container {
+    display: flex;
+    justify-content: end;
+  }
+  .theme_switch {
+    position: relative;
+    right: 0;
+  }
+}
+
+/* Dark theme */
+.darktheme {
+  background-color: #1e1e1e;
+  transition: all 0.3s ease;
+}
