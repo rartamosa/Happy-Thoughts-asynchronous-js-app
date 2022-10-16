@@ -17,57 +17,20 @@
         <input class="theme_switch" type="checkbox" />
       </div>
       <div class="new-thought__container container">
-        <h2>What’s making you happy right now?</h2>
+        <h2>What's making you happy right now?</h2>
         <form class="new-thought__container_form">
           <input
             type="text"
             class="new-thought__container_input"
-            placeholder="It’s my birthday today!"
-            required
-            minlength="5"
-            maxlength="65"
+            placeholder="Share your happy thought"
           />
+          <div class="error"></div>
           <button class="new-thought__container_button" type="submit">
             ❤️ Send a happy thought ❤️
           </button>
         </form>
       </div>
-      <div class="single-thought__container container">
-        <div class="single-thought__container-1st-part">
-          <span class="single-thought__container-text">
-            I’m happy because I’ve just moved into a brand new apartment!
-          </span>
-          <button class="single-thought__container-delete"></button>
-        </div>
-        <div class="single-thought__container-2nd-part">
-          <button class="single-thought__container-like"></button>
-          <span class="single-thought__container-like-counter">x 0</span>
-        </div>
-      </div>
-      <div class="single-thought__container container">
-        <div class="single-thought__container-1st-part">
-          <span class="single-thought__container-text">
-            I’m happy because I’ve just moved into a brand new apartment!
-          </span>
-          <button class="single-thought__container-delete"></button>
-        </div>
-        <div class="single-thought__container-2nd-part">
-          <button class="single-thought__container-like"></button>
-          <span class="single-thought__container-like-counter">x 0</span>
-        </div>
-      </div>
-      <div class="single-thought__container container">
-        <div class="single-thought__container-1st-part">
-          <span class="single-thought__container-text">
-            I’m happy because I’ve just moved into a brand new apartment!
-          </span>
-          <button class="single-thought__container-delete"></button>
-        </div>
-        <div class="single-thought__container-2nd-part">
-          <button class="single-thought__container-like"></button>
-          <span class="single-thought__container-like-counter">x 0</span>
-        </div>
-      </div>
+      <div class="thoughts__container"></div>
     </section>
   </body>
   <script src="./app.js"></script>
