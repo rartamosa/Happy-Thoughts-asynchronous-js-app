@@ -2,7 +2,7 @@
 const newThoughtText = document.querySelector(".new-thought__container_input");
 
 // Global variables
-const URL = "http://happy-thoughts-api-sprint-4.herokuapp.com/thoughts";
+const URL = "http://happy-thoughts-api-sprint-4.herokuapp.com";
 
 // Buttons
 const themeButton = document.querySelector(".theme_switch");
@@ -13,14 +13,41 @@ const body = document.querySelector("body");
 const newThoughtsContainer = document.querySelector(".thoughts__container");
 const error = document.querySelector(".error");
 
+// Global functions
+const deleteOptions = () => {
+  {
+    const options = {
+      method: "DELETE",
+    };
+    fetch(`${URL}/thoughts/${event.target.dataset.id}`, options)
+      .then(() => fetchThoughts())
+      .catch((err) => (error.innerText = "Ooops, something went wrong"));
+  }
+};
+
+// const postOptions = () => {
+//   {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({
+//           message: newThoughtText.value,
+//         }),
+//       };
+//   };
+
+// const likeOptions = () => {
+//   method: "PUT";
+// };
+
 // Theme switch
 themeButton.addEventListener("click", () => body.classList.toggle("darktheme"));
 
 const fetchThoughts = () => {
-  fetch(`${URL}`)
+  fetch(`${URL}/thoughts`)
     .then((res) => res.json())
     .then((data) => {
-      //   arrayofThoughts = data.message;
       newThoughtsContainer.innerHTML = "";
       data.data.forEach((thought) => {
         newThoughtsContainer.innerHTML += `
@@ -48,14 +75,9 @@ const fetchThoughts = () => {
         ".single-thought__container-delete"
       );
       deleteButton.forEach((singleDeleteButton) => {
-        singleDeleteButton.addEventListener("click", (event) => {
-          const options = {
-            method: "DELETE",
-          };
-          fetch(`${URL}/${event.target.dataset.id}`, options)
-            .then(() => fetchThoughts())
-            .catch((err) => (error.innerText = "Ooops, something went wrong"));
-        });
+        singleDeleteButton.addEventListener("click", (event) =>
+          deleteOptions()
+        );
       });
       const likeButton = document.querySelectorAll(
         ".single-thought__container-like"
@@ -68,7 +90,7 @@ const fetchThoughts = () => {
           const options = {
             method: "PUT",
           };
-          fetch(`${URL}/like/${event.target.dataset.id}`, options)
+          fetch(`${URL}/thoughts/like/${event.target.dataset.id}`, options)
             .then(() => fetchThoughts())
             .catch((err) => (error.innerText = "Ooops, something went wrong"));
         });
@@ -103,7 +125,7 @@ newThought.addEventListener("submit", (event) => {
         message: newThoughtText.value,
       }),
     };
-    fetch(`${URL}`, options)
+    fetch(`${URL}/thoughts`, options)
       .then(() => fetchThoughts())
       .catch((err) => (error.innerText = "Ooops, something went wrong"));
     newThoughtText.value = "";
