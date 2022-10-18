@@ -14,7 +14,32 @@ const newThoughtsContainer = document.querySelector(".thoughts__container");
 const error = document.querySelector(".error");
 
 // Global functions
-const deleteOptions = () => {
+const addHappyThought = () => {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      message: newThoughtText.value,
+    }),
+  };
+  fetch(`${URL}/thoughts`, options)
+    .then(() => fetchThoughts())
+    .catch((err) => (error.innerText = "Ooops, something went wrong"));
+  newThoughtText.value = "";
+};
+
+const likeThought = () => {
+  const options = {
+    method: "PUT",
+  };
+  fetch(`${URL}/thoughts/like/${event.target.dataset.id}`, options)
+    .then(() => fetchThoughts())
+    .catch((err) => (error.innerText = "Ooops, something went wrong"));
+};
+
+const deleteThought = () => {
   {
     const options = {
       method: "DELETE",
@@ -24,22 +49,6 @@ const deleteOptions = () => {
       .catch((err) => (error.innerText = "Ooops, something went wrong"));
   }
 };
-
-// const postOptions = () => {
-//   {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//           message: newThoughtText.value,
-//         }),
-//       };
-//   };
-
-// const likeOptions = () => {
-//   method: "PUT";
-// };
 
 // Theme switch
 themeButton.addEventListener("click", () => body.classList.toggle("darktheme"));
@@ -76,24 +85,14 @@ const fetchThoughts = () => {
       );
       deleteButton.forEach((singleDeleteButton) => {
         singleDeleteButton.addEventListener("click", (event) =>
-          deleteOptions()
+          deleteThought()
         );
       });
       const likeButton = document.querySelectorAll(
         ".single-thought__container-like"
       );
-      const likeContainer = document.querySelectorAll(
-        ".single-thought__container-like-counter"
-      );
       likeButton.forEach((singleLikeButton) => {
-        singleLikeButton.addEventListener("click", (event) => {
-          const options = {
-            method: "PUT",
-          };
-          fetch(`${URL}/thoughts/like/${event.target.dataset.id}`, options)
-            .then(() => fetchThoughts())
-            .catch((err) => (error.innerText = "Ooops, something went wrong"));
-        });
+        singleLikeButton.addEventListener("click", (event) => likeThought());
       });
     })
     .catch((err) => console.log(err));
@@ -116,18 +115,6 @@ newThoughtText.addEventListener("keyup", (event) => {
 newThought.addEventListener("submit", (event) => {
   event.preventDefault();
   if (newThoughtText.value.length > 3 && newThoughtText.value.length < 66) {
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        message: newThoughtText.value,
-      }),
-    };
-    fetch(`${URL}/thoughts`, options)
-      .then(() => fetchThoughts())
-      .catch((err) => (error.innerText = "Ooops, something went wrong"));
-    newThoughtText.value = "";
+    addHappyThought();
   }
 });

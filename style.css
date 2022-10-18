@@ -10,6 +10,7 @@ body {
   font-weight: 400;
   background-color: #fff;
   line-height: 24px;
+  transition: all 0.3s ease;
 }
 
 h2 {
@@ -67,7 +68,6 @@ h2 {
   margin-top: 77px;
   background-color: #eaeaea;
   padding: 17px 18px 32px 18px;
-  margin-bottom: 67px;
 }
 
 .new-thought__container_form {
@@ -102,6 +102,9 @@ h2 {
   padding: 22px 0;
   line-height: 40px;
   cursor: pointer;
+}
+.thoughts__container {
+  margin-top: 67px;
 }
 
 .single-thought__container {
@@ -174,10 +177,14 @@ h2 {
     line-height: 48px;
   }
   .theme_switch {
-    right: 36px;
+    position: relative;
+    right: 0;
+  }
+  .theme_switch_container {
+    display: flex;
+    justify-content: end;
   }
   .container {
-    margin: 0 36px;
     width: 696px;
   }
   .new-thought__container {
@@ -186,6 +193,9 @@ h2 {
   }
   .new-thought__container_button {
     width: 304px;
+  }
+  .thoughts__container {
+    margin-top: 100px;
   }
   .single-thought__container {
     margin-bottom: 50px;
@@ -200,15 +210,10 @@ h2 {
 /* Desktop */
 @media all and (min-width: 1200px) {
   .container {
-    margin: 100px 0 77px 0;
+    margin-top: 78px;
   }
-  .theme_switch_container {
-    display: flex;
-    justify-content: end;
-  }
-  .theme_switch {
-    position: relative;
-    right: 0;
+  .single-thought__container {
+    margin-top: 0;
   }
 }
 
@@ -216,4 +221,10 @@ h2 {
 .darktheme {
   background-color: #1e1e1e;
   transition: all 0.3s ease;
+}
+body.darktheme .container {
+  box-shadow: 10px 10px 0px #eaeaea;
+  background-color: #000;
+  color: #eaeaea;
+  border: 2px solid #eaeaea;
 }

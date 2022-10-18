@@ -2,7 +2,7 @@
 
 ## GET /thoughts - receive all thoughts
 
-http://happy-thoughts-api-sprint-4.herokuapp.com/thoughts
+http://happy-thoughts-api-sprint-4.herokuapp.com
 
 ```JavaScript
 {
