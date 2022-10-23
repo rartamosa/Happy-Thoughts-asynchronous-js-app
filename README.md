@@ -1,3 +1,13 @@
+## List of technologies used in this project:
+
+- HTML
+- CSS
+- fetch()
+- vanilla JavaScript
+- Rest API
+
+<hr>
+
 # API overview
 
 ## GET /thoughts - receive all thoughts

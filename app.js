@@ -1,12 +1,10 @@
 // Variables
-const newThoughtText = document.querySelector(".new-thought__container_input");
-
-// Global variables
+const newThoughtText = document.querySelector(".new-thought__input");
 const URL = "http://happy-thoughts-api-sprint-4.herokuapp.com";
 
 // Buttons
 const themeButton = document.querySelector(".theme_switch");
-const newThought = document.querySelector(".new-thought__container_form");
+const newThought = document.querySelector(".new-thought__form");
 
 // Containers
 const body = document.querySelector("body");
@@ -14,7 +12,7 @@ const newThoughtsContainer = document.querySelector(".thoughts__container");
 const error = document.querySelector(".error");
 
 // Global functions
-const addHappyThought = () => {
+const addThought = () => {
   const options = {
     method: "POST",
     headers: {
@@ -26,8 +24,8 @@ const addHappyThought = () => {
   };
   fetch(`${URL}/thoughts`, options)
     .then(() => fetchThoughts())
-    .catch((err) => (error.innerText = "Ooops, something went wrong"));
-  newThoughtText.value = "";
+    .catch((err) => (error.innerText = "Ooops, something went wrong"))
+    .finally((newThoughtText.value = ""));
 };
 
 const likeThought = () => {
@@ -115,6 +113,6 @@ newThoughtText.addEventListener("keyup", (event) => {
 newThought.addEventListener("submit", (event) => {
   event.preventDefault();
   if (newThoughtText.value.length > 3 && newThoughtText.value.length < 66) {
-    addHappyThought();
+    addThought();
   }
 });
