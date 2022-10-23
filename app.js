@@ -1,6 +1,6 @@
 // Variables
 const newThoughtText = document.querySelector(".new-thought__input");
-const URL = "http://happy-thoughts-api-sprint-4.herokuapp.com";
+const URL = "https://happy-thoughts-api-sprint-4.herokuapp.com";
 
 // Buttons
 const themeButton = document.querySelector(".theme_switch");
