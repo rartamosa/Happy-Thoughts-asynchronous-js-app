@@ -56,7 +56,7 @@ const fetchThoughts = () => {
     .then((res) => res.json())
     .then((data) => {
       newThoughtsContainer.innerHTML = "";
-      data.data.forEach((thought) => {
+      data.data.reverse().forEach((thought) => {
         newThoughtsContainer.innerHTML += `
         <div class="single-thought__container container">
           <div class="single-thought__container-1st-part">
