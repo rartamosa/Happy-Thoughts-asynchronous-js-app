@@ -12,7 +12,7 @@
 
 ## GET /thoughts - receive all thoughts
 
-http://happy-thoughts-api-sprint-4.herokuapp.com
+https://happy-thoughts-api.fly.dev
 
 ```JavaScript
 {

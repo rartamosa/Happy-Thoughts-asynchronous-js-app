@@ -1,6 +1,6 @@
 // Variables
 const newThoughtText = document.querySelector(".new-thought__input");
-const URL = "https://happy-thoughts.onrender.com";
+const URL = "https://happy-thoughts-api.fly.dev";
 
 // Buttons
 const themeButton = document.querySelector(".theme_switch");
